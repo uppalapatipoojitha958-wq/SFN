@@ -1,4 +1,4 @@
-<!-- lifemap/ -->
+<!-- sfn/ -->
 <!--   index.html -->
 <!--   style.css -->
 <!--   script.js (optional) -->
@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SFN | Design Your Future</title>
-    <meta name="description" content="Plan skills, map careers, and send messages to your future self with LifeMap.">
+    <title>SFN | Student Friendly Notepad</title>
+    <meta name="description" content="Plan skills, map careers, and send messages to your future self with SFN.">
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar" aria-label="Main Navigation">
         <div class="container nav-container">
-            <a href="#" class="logo">SFN-Student Friendly Notepad</a>
+            <a href="#" class="logo">SFN</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#timeline">Timeline</a></li>
@@ -32,6 +32,10 @@
                 <li><a href="#resources">Resources</a></li>
             </ul>
             <div class="nav-actions">
+                <div id="user-profile" class="user-profile hidden">
+                    <span id="display-username"></span>
+                    <button id="logout-btn" class="btn btn-outline btn-sm">Logout</button>
+                </div>
                 <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
                     <i data-lucide="moon" id="theme-icon"></i>
                 </button>
@@ -42,8 +46,55 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
+    <!-- Auth Section -->
+    <section id="auth-section" class="auth-section">
+        <div class="container auth-container">
+            <div class="auth-card glass animate-up">
+                <div class="auth-tabs">
+                    <button id="tab-login" class="auth-tab active">Login</button>
+                    <button id="tab-signup" class="auth-tab">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form">
+                    <h2>Welcome Back</h2>
+                    <p>Login to access SFN</p>
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form hidden">
+                    <h2>Create Account</h2>
+                    <p>Start designing your future today</p>
+                    <div class="input-group">
+                        <label for="signup-username">Username</label>
+                        <input type="text" id="signup-username" placeholder="Choose a username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Min. 6 characters" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="dashboard-content" class="hidden">
+        <!-- Hero Section -->
+        <header id="home" class="hero">
         <div class="container hero-content">
             <h1 class="animate-up">Design Your Future Before It Happens</h1>
             <p class="animate-up delay-1">Plan skills, map careers, and send messages to your future self.</p>
@@ -381,11 +432,13 @@
         </div>
     </section>
 
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-info">
-                <p>SFN — Plan your life, inspire your future.</p>
+                <p>SFN — Student Friendly Notepad. Plan your life, inspire your future.</p>
                 <p>Contact: <a href="mailto:sfn@example.com">sfn@example.com</a></p>
             </div>
             <div class="footer-bottom">
@@ -408,3 +461,12 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!-- 
+To deploy this site on GitHub Pages:
+1. Create a new repository on GitHub named 'sfn'.
+2. Upload index.html, style.css, and script.js to the repository.
+3. Go to Settings > Pages.
+4. Under 'Build and deployment', set the source to 'Deploy from a branch'.
+5. Select the 'main' branch and click 'Save'.
+6. Your site will be live at https://<your-username>.github.io/sfn/
+-->

@@ -1,5 +1,108 @@
 /* script.js */
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Auth Logic ---
+    const authSection = document.getElementById('auth-section');
+    const dashboardContent = document.getElementById('dashboard-content');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const tabLogin = document.getElementById('tab-login');
+    const tabSignup = document.getElementById('tab-signup');
+    const userProfile = document.getElementById('user-profile');
+    const displayUsername = document.getElementById('display-username');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // Check session
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    const updateAuthState = () => {
+        if (currentUser) {
+            authSection.classList.add('hidden');
+            dashboardContent.classList.remove('hidden');
+            userProfile.classList.remove('hidden');
+            displayUsername.textContent = `Hi, ${currentUser.username}`;
+            document.querySelectorAll('.nav-links').forEach(el => el.classList.remove('hidden'));
+        } else {
+            authSection.classList.remove('hidden');
+            dashboardContent.classList.add('hidden');
+            userProfile.classList.add('hidden');
+            document.querySelectorAll('.nav-links').forEach(el => el.classList.add('hidden'));
+        }
+    };
+
+    updateAuthState();
+
+    // Tab Switching
+    tabLogin.addEventListener('click', () => {
+        tabLogin.classList.add('active');
+        tabSignup.classList.remove('active');
+        loginForm.classList.remove('hidden');
+        signupForm.classList.add('hidden');
+    });
+
+    tabSignup.addEventListener('click', () => {
+        tabSignup.classList.add('active');
+        tabLogin.classList.remove('active');
+        signupForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+    });
+
+    // Signup Logic
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('signup-username').value.trim();
+        const email = document.getElementById('signup-email').value.trim();
+        const password = document.getElementById('signup-password').value.trim();
+
+        if (!username || !email || !password) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return;
+        }
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        if (users.find(u => u.email === email)) {
+            alert("Email already registered.");
+            return;
+        }
+
+        const newUser = { username, email, password };
+        users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(users));
+        
+        alert("Account created successfully! Please login.");
+        tabLogin.click();
+    });
+
+    // Login Logic
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value.trim();
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+            currentUser = user;
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            updateAuthState();
+            window.scrollTo(0, 0);
+        } else {
+            alert("Invalid email or password.");
+        }
+    });
+
+    // Logout Logic
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('currentUser');
+        currentUser = null;
+        updateAuthState();
+    });
+
     // Initialize Lucide Icons
     lucide.createIcons();
 
