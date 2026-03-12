@@ -1,0 +1,410 @@
+<!-- lifemap/ -->
+<!--   index.html -->
+<!--   style.css -->
+<!--   script.js (optional) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFN | Design Your Future</title>
+    <meta name="description" content="Plan skills, map careers, and send messages to your future self with LifeMap.">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (via CDN for simplicity in static site) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="container nav-container">
+            <a href="#" class="logo">SFN-Student Friendly Notepad</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#futureme">FutureMe</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Open Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="container hero-content">
+            <h1 class="animate-up">Design Your Future Before It Happens</h1>
+            <p class="animate-up delay-1">Plan skills, map careers, and send messages to your future self.</p>
+            
+            <div class="hero-main-action animate-up delay-2">
+                <div class="age-selector glass">
+                    <h3>Start Your Journey</h3>
+                    <p>Enter your age to see your personalized roadmap</p>
+                    <div class="age-input-group">
+                        <input type="number" id="user-age" placeholder="Age" min="1" max="100">
+                        <button id="set-age-btn" class="btn btn-primary">Update Timeline</button>
+                    </div>
+                </div>
+                <div class="hero-btns">
+                    <button id="inspire-btn" class="btn btn-secondary">Inspire Me</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Life Timeline Section -->
+    <section id="timeline" class="section timeline-section">
+        <div class="container">
+            <h2 class="section-title">Vertical Life Timeline</h2>
+            <div class="timeline" id="main-timeline">
+                <div class="timeline-item glass" data-age-min="18" data-age-max="20">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="status-badge">Phase 1</span>
+                        <h3>18–20 — Skill Development</h3>
+                        <p>Learn programming fundamentals, build small projects, join clubs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass" data-age-min="20" data-age-max="22">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="status-badge">Phase 2</span>
+                        <h3>20–22 — Internships & Projects</h3>
+                        <p>Apply for internships, contribute to open source, build portfolio.</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass" data-age-min="22" data-age-max="25">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="status-badge">Phase 3</span>
+                        <h3>22–25 — First Job & Financial Basics</h3>
+                        <p>Prepare for interviews, start saving, learn workplace skills.</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass" data-age-min="25" data-age-max="30">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="status-badge">Phase 4</span>
+                        <h3>25–30 — Career Growth</h3>
+                        <p>Specialize, lead projects, plan long-term goals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass" data-age-min="30" data-age-max="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="status-badge">Phase 5</span>
+                        <h3>30+ — Life Goals & Stability</h3>
+                        <p>Financial planning, mentorship, work-life balance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Roadmap Section -->
+    <section id="careers" class="section careers-section">
+        <div class="container">
+            <h2 class="section-title">Career Roadmap</h2>
+            <div class="roadmap-grid">
+                <!-- Web Developer -->
+                <div class="roadmap-card glass">
+                    <h3>Web Developer</h3>
+                    <div class="roadmap-steps">
+                        <div class="step">HTML</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">CSS</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">JavaScript</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">React</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Projects</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <button class="step job-btn" id="web-job-step" data-career="Web Developer">Job</button>
+                    </div>
+                    <div class="career-info">
+                        <p><strong>High Package Role:</strong> Full Stack / DevOps Engineer</p>
+                        <p><strong>High Demand:</strong> React & Next.js Developers</p>
+                    </div>
+                </div>
+                <!-- Data Scientist -->
+                <div class="roadmap-card glass">
+                    <h3>Data Scientist</h3>
+                    <div class="roadmap-steps">
+                        <div class="step">Python</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Statistics</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Data Cleaning</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Machine Learning</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Projects</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <button class="step job-btn" id="ds-job-step" data-career="Data Scientist">Job</button>
+                    </div>
+                    <div class="career-info">
+                        <p><strong>High Package Role:</strong> AI/ML Engineer</p>
+                        <p><strong>High Demand:</strong> Data Engineering & Big Data</p>
+                    </div>
+                </div>
+                <!-- UI/UX Designer -->
+                <div class="roadmap-card glass">
+                    <h3>UI/UX Designer</h3>
+                    <div class="roadmap-steps">
+                        <div class="step">Design Basics</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Wireframes</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Prototyping</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Visual Design</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <div class="step">Portfolio</div>
+                        <div class="arrow"><i data-lucide="arrow-right"></i></div>
+                        <button class="step job-btn" id="ui-job-step" data-career="UI/UX Designer">Job</button>
+                    </div>
+                    <div class="career-info">
+                        <p><strong>High Package Role:</strong> Senior Product Designer</p>
+                        <p><strong>High Demand:</strong> UX Research & Interaction Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Progress Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">Skill Progress</h2>
+            <div class="skills-grid" id="skills-container">
+                <!-- HTML -->
+                <div class="skill-card glass">
+                    <div class="skill-header">
+                        <i data-lucide="layout"></i>
+                        <h3>HTML</h3>
+                        <span class="skill-percent" id="percent-html">0%</span>
+                    </div>
+                    <div class="topics-list">
+                        <label><input type="checkbox" class="topic-check" data-skill="html"> Semantic Tags</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="html"> Forms & Validation</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="html"> SEO Basics</label>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="skill-html" style="width: 0%"></div>
+                    </div>
+                </div>
+                <!-- CSS -->
+                <div class="skill-card glass">
+                    <div class="skill-header">
+                        <i data-lucide="palette"></i>
+                        <h3>CSS</h3>
+                        <span class="skill-percent" id="percent-css">0%</span>
+                    </div>
+                    <div class="topics-list">
+                        <label><input type="checkbox" class="topic-check" data-skill="css"> Flexbox & Grid</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="css"> Animations</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="css"> Responsive Design</label>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="skill-css" style="width: 0%"></div>
+                    </div>
+                </div>
+                <!-- JS -->
+                <div class="skill-card glass">
+                    <div class="skill-header">
+                        <i data-lucide="code-2"></i>
+                        <h3>JavaScript</h3>
+                        <span class="skill-percent" id="percent-js">0%</span>
+                    </div>
+                    <div class="topics-list">
+                        <label><input type="checkbox" class="topic-check" data-skill="js"> DOM Manipulation</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="js"> Async/Await</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="js"> ES6+ Features</label>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="skill-js" style="width: 0%"></div>
+                    </div>
+                </div>
+                <!-- Comm -->
+                <div class="skill-card glass">
+                    <div class="skill-header">
+                        <i data-lucide="message-square"></i>
+                        <h3>Communication</h3>
+                        <span class="skill-percent" id="percent-comm">0%</span>
+                    </div>
+                    <div class="topics-list">
+                        <label><input type="checkbox" class="topic-check" data-skill="comm"> Public Speaking</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="comm"> Technical Writing</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="comm"> Team Collaboration</label>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="skill-comm" style="width: 0%"></div>
+                    </div>
+                </div>
+                <!-- Problem Solving -->
+                <div class="skill-card glass">
+                    <div class="skill-header">
+                        <i data-lucide="brain"></i>
+                        <h3>Problem Solving</h3>
+                        <span class="skill-percent" id="percent-prob">0%</span>
+                    </div>
+                    <div class="topics-list">
+                        <label><input type="checkbox" class="topic-check" data-skill="prob"> Data Structures</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="prob"> Algorithms</label>
+                        <label><input type="checkbox" class="topic-check" data-skill="prob"> Debugging</label>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="skill-prob" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life Goal Tracker -->
+    <section id="goals" class="section goals-section">
+        <div class="container">
+            <h2 class="section-title">Life Goal Tracker</h2>
+            <div class="goals-container glass">
+                <div class="goal-input-group">
+                    <input type="text" id="goal-input" placeholder="Enter what you want to learn...">
+                    <button id="add-goal-btn" class="btn btn-primary">Add Goal</button>
+                </div>
+                <div class="goal-progress-container">
+                    <div class="goal-progress-info">
+                        <span>Overall Progress</span>
+                        <span id="goal-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="goal-progress-bar" class="progress" style="width: 0%"></div>
+                    </div>
+                </div>
+                <ul id="goal-list" class="goal-list">
+                    <!-- Goals will appear here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FutureMe Section -->
+    <section id="futureme" class="section futureme-section">
+        <div class="container">
+            <h2 class="section-title">FutureMe (Time-Capsule)</h2>
+            <div class="futureme-grid">
+                <div class="message-form glass">
+                    <textarea id="future-message" placeholder="Dear Future Me..." aria-label="Message to future self"></textarea>
+                    <div class="form-controls">
+                        <select id="time-option" aria-label="Select time period">
+                            <option value="" disabled selected>Select Time Period</option>
+                            <option value="1hour">1 Hour Later (Demo)</option>
+                            <option value="2hours">2 Hours Later (Demo)</option>
+                            <option value="graduation">After Graduation</option>
+                            <option value="3years">3 Years Later</option>
+                            <option value="5years">5 Years Later</option>
+                        </select>
+                        <div class="btn-group">
+                            <button id="save-msg-btn" class="btn btn-primary">Save Message</button>
+                            <button id="clear-msg-btn" class="btn btn-secondary">Clear Saved</button>
+                        </div>
+                    </div>
+                    <div id="save-notice" class="notice hidden">Message saved to your time capsule!</div>
+                </div>
+                <div class="countdown-container glass">
+                    <h3>Time until message unlocks:</h3>
+                    <div id="countdown" class="countdown-timer">
+                        <div class="timer-unit">
+                            <span id="days">00</span>
+                            <label>Days</label>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="hours">00</span>
+                            <label>Hours</label>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="minutes">00</span>
+                            <label>Mins</label>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="seconds">00</span>
+                            <label>Secs</label>
+                        </div>
+                    </div>
+                    <p id="countdown-target" class="target-date"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section resources-section">
+        <div class="container">
+            <h2 class="section-title">Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card glass">
+                    <i data-lucide="code"></i>
+                    <h3>Coding Practice</h3>
+                    <p>Interactive coding challenges to sharpen your skills.</p>
+                    <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="resource-link">Open Resource</a>
+                </div>
+                <div class="resource-card glass">
+                    <i data-lucide="file-text"></i>
+                    <h3>Career Guides</h3>
+                    <p>Interview tips & resume templates for your dream job.</p>
+                    <a href="https://www.linkedin.com/learning" target="_blank" rel="noopener noreferrer" class="resource-link">Open Resource</a>
+                </div>
+                <div class="resource-card glass">
+                    <i data-lucide="clock"></i>
+                    <h3>Productivity Tools</h3>
+                    <p>Time management & focus techniques for better results.</p>
+                    <a href="https://www.notion.so" target="_blank" rel="noopener noreferrer" class="resource-link">Open Resource</a>
+                </div>
+                <div class="resource-card glass">
+                    <i data-lucide="graduation-cap"></i>
+                    <h3>Learning Platforms</h3>
+                    <p>Curated courses and tutorials from top educators.</p>
+                    <a href="https://www.coursera.org" target="_blank" rel="noopener noreferrer" class="resource-link">Open Resource</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p>SFN — Plan your life, inspire your future.</p>
+                <p>Contact: <a href="mailto:sfn@example.com">sfn@example.com</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SFN. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Company Recommendation Modal -->
+    <div id="company-modal" class="modal hidden">
+        <div class="modal-content glass">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Recommended Companies</h2>
+            <div id="company-list" class="company-list">
+                <!-- Companies will be listed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
